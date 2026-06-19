@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinh Tế Thị Trường</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Video nền */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: -2;
+        }
+
+        /* Lớp phủ tối */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.35);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Tiêu đề */
+        .title {
+            color: gold;
+            font-size: 55px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 10px black;
+
+            text-align: center;
+        }
+
+        /* Câu hỏi */
+        .question {
+            width: 85%;
+
+            text-align: center;
+
+            color: white;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            line-height: 1.6;
+
+            margin-bottom: 50px;
+
+            text-shadow: 2px 2px 8px black;
+        }
+
+        /* Nút */
+        .option {
+            width: 80%;
+
+            max-width: 1200px;
+
+            margin: 15px;
+
+            padding: 20px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            font-size: 26px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .option:hover {
+            transform: scale(1.03);
+        }
+
+        .option1 {
+            background: #3498db;
+            color: white;
+        }
+
+        .option2 {
+            background: #2ecc71;
+            color: white;
+        }
+
+        /* Màn hình bắt đầu */
+        #startScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: black;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            z-index: 999;
+        }
+
+        #startBtn {
+
+            padding: 30px 80px;
+
+            font-size: 40px;
+
+            font-weight: bold;
+
+            border: none;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+        }
+        .next-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+
+            border: none;
+            border-radius: 12px;
+
+            background: gold;
+            color: black;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Video nền -->
+<video autoplay muted loop id="bg-video">
+    <source src="Video2.mp4" type="video/mp4">
+</video>
+
+<!-- Nhạc -->
+<audio id="music" loop>
+    <source src="/music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="overlay">
+
+    <div class="title">
+        Chúng mừng bạn <br><br>
+        tiệm hoa của bạn đã doanh thu tăng vọt.
+    </div>
+
+</div>
+<button class="next-btn" onclick="window.location.href='1tuansau.html'">
+    1 TUẦN SAU
+</button>
+
+<script>
+
+    function startGame() {
+
+        document.getElementById("music").play();
+
+        document.getElementById("startScreen").style.display = "none";
+
+    }
+
+    function vote(choice) {
+
+        alert("Bạn đã chọn phương án " + choice);
+
+        /*
+        fetch("/vote?answer="+choice,{
+            method:"POST"
+        });
+        */
+
+    }
+    window.onload = function() {
+        document.getElementById("music").play();
+    }
+
+</script>
+
+</body>
+</html>
